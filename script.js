@@ -39,7 +39,7 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle
 
 // ===== Scroll reveal =====
 const revealTargets = document.querySelectorAll(
-  '.about, .stat, .work__head, .card, .quote, .tl, .certs__inner, .contact__title'
+  '.about, .stat, .work__head, .quote, .tl, .certs__inner, .contact__title'
 );
 revealTargets.forEach(el => el.classList.add('reveal'));
 const io = new IntersectionObserver((entries) => {
@@ -77,34 +77,35 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 
-// ===== Drag-to-scroll on case study cards =====
-const cards = document.getElementById('cards');
-let isDown = false, startX, scrollLeft;
-cards.addEventListener('mousedown', (e) => {
-  isDown = true;
-  cards.classList.add('dragging');
-  startX = e.pageX - cards.offsetLeft;
-  scrollLeft = cards.scrollLeft;
-});
-['mouseleave', 'mouseup'].forEach(ev =>
-  cards.addEventListener(ev, () => { isDown = false; cards.classList.remove('dragging'); })
-);
-cards.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - cards.offsetLeft;
-  cards.scrollLeft = scrollLeft - (x - startX) * 1.4;
-});
-
-// ===== Respect reduced-motion for the hover effects below =====
+// ===== Motion capability checks =====
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+// ===== Infinite auto-scroll for case-study cards =====
+const cards = document.getElementById('cards');
+if (cards) {
+  const originals = [...cards.children];
+  // duplicate the set so the loop is seamless
+  originals.forEach(c => {
+    const clone = c.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    cards.appendChild(clone);
+  });
+  if (!reduceMotion) {
+    const distance = cards.children[originals.length].offsetLeft - cards.children[0].offsetLeft;
+    const cardAnim = cards.animate(
+      [{ transform: 'translateX(0)' }, { transform: `translateX(-${distance}px)` }],
+      { duration: distance * 16, iterations: Infinity, easing: 'linear' }
+    );
+    cards.addEventListener('mouseenter', () => cardAnim.pause());
+    cards.addEventListener('mouseleave', () => cardAnim.play());
+  }
+}
 
 // ===== Card hover-tilt =====
 if (finePointer && !reduceMotion) {
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
-      if (cards.classList.contains('dragging')) return;
       const r = card.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;

@@ -202,16 +202,17 @@ section{position:relative}
 /* ============== JOURNEY ============== */
 .journey{max-width:920px;margin:0 auto;padding:80px clamp(20px,5vw,64px)}
 .journey .section-title{margin-bottom:54px}
-.timeline{position:relative;padding-left:8px}
-.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--purple),var(--teal))}
-.tl{position:relative;padding-left:42px;padding-bottom:34px}
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:linear-gradient(var(--purple),var(--teal))}
+.tl{position:relative;padding-bottom:22px}
 .tl:last-child{padding-bottom:0}
-.tl__dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--purple);box-shadow:0 0 0 4px #EDE4FE}
-.tl__year{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--teal-d);margin-bottom:8px;letter-spacing:.04em}
-.tl__card{background:var(--mist);border:1px solid var(--line);border-radius:18px;padding:22px 24px;transition:.3s}
+.tl__dot{position:absolute;left:-34px;top:22px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--purple);box-shadow:0 0 0 4px #EDE4FE;z-index:1}
+.tl__card{background:var(--mist);border:1px solid var(--line);border-radius:18px;padding:22px 26px;transition:transform .3s ease,box-shadow .3s ease,background .3s ease}
 .tl__card:hover{transform:translateX(6px);box-shadow:var(--shadow-sm);background:#fff}
-.tl__card h3{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.01em}
-.tl__org{display:inline-block;font-weight:700;font-size:.86rem;color:var(--purple);margin:2px 0 10px}
+.tl__top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.tl__year{font-family:var(--display);font-weight:700;font-size:.82rem;color:var(--teal-d);letter-spacing:.04em;background:#D5F5EF;padding:4px 12px;border-radius:100px;white-space:nowrap}
+.tl__org{font-weight:700;font-size:.92rem;color:var(--purple)}
+.tl__card h3{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.01em;margin-bottom:8px}
 .tl__card p{font-size:.94rem;color:var(--ink-soft)}
 .tl__card p strong{color:var(--ink)}
 

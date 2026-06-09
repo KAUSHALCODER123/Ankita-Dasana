@@ -126,3 +126,56 @@ if (finePointer && !reduceMotion) {
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 }
+
+// ===== Instagram feed strip: clone tiles for a seamless loop =====
+const igstrip = document.getElementById('igstrip');
+if (igstrip) {
+  [...igstrip.children].forEach(tile => {
+    const clone = tile.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.tabIndex = -1;
+    igstrip.appendChild(clone);
+  });
+}
+
+// ===== Lightbox for gallery photos =====
+const galleryImgs = [...document.querySelectorAll('.gallery .g-item:not(.g-item--video) img')];
+const lb = document.getElementById('lightbox');
+if (lb && galleryImgs.length) {
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  let lbIndex = 0;
+
+  const openLb = (i) => {
+    lbIndex = (i + galleryImgs.length) % galleryImgs.length;
+    const img = galleryImgs[lbIndex];
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
+    const cap = img.closest('.g-item').querySelector('figcaption');
+    lbCap.innerHTML = cap ? cap.innerHTML : (img.alt || '');
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLb = () => {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  galleryImgs.forEach((img, i) =>
+    img.closest('.g-item').addEventListener('click', () => openLb(i))
+  );
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', (e) => { e.stopPropagation(); openLb(lbIndex - 1); });
+  document.getElementById('lbNext').addEventListener('click', (e) => { e.stopPropagation(); openLb(lbIndex + 1); });
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb || e.target.classList.contains('lb__stage')) closeLb();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    else if (e.key === 'ArrowLeft') openLb(lbIndex - 1);
+    else if (e.key === 'ArrowRight') openLb(lbIndex + 1);
+  });
+}

@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ankita Dasana — Social Media Manager & Creative Producer</title>
 <meta name="description" content="Portfolio of Ankita Dasana — Creative Producer, Director & Social Media Manager. Entertainment, celebrity content, and brand campaigns that scaled to 25M+ reach." />
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ankita Dasana — Social Media Manager & Creative Producer" />
+<meta property="og:description" content="Entertainment, celebrity content & brand campaigns that scaled to 25M+ reach. Maybelline, Flipkart, Filmygyan, T-Series." />
+<meta property="og:image" content="https://kaushalcoder123.github.io/Ankita-Dasana/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://kaushalcoder123.github.io/Ankita-Dasana/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ankita Dasana — Social Media Manager & Creative Producer" />
+<meta name="twitter:description" content="Entertainment, celebrity content & brand campaigns that scaled to 25M+ reach." />
+<meta name="twitter:image" content="https://kaushalcoder123.github.io/Ankita-Dasana/assets/og-image.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -434,6 +446,32 @@
   </div>
 </section>
 
+<!-- ===== INSTAGRAM FEED STRIP ===== -->
+<section class="igfeed" id="igfeed">
+  <div class="igfeed__head">
+    <div>
+      <span class="eyebrow">— On the grid</span>
+      <h2 class="igfeed__title">Catch the content <span class="grad">live.</span></h2>
+    </div>
+    <a class="igfeed__follow" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Follow @ankita_dasana
+    </a>
+  </div>
+  <div class="igstrip-wrap">
+    <div class="igstrip" id="igstrip">
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/maybelline-2.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/rajkummar-rao.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/reel/DKwB5V9RIGw/" target="_blank" rel="noopener"><img src="assets/IMG_5390.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/niki-tamboli-2.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/flipkart-1.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/maybelline-3.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/filmygyan-team.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+      <a class="igtile" href="https://www.instagram.com/ankita_dasana" target="_blank" rel="noopener"><img src="assets/ankita-about.jpg" alt="" loading="lazy" /><span class="igtile__ic"></span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section class="contact" id="contact">
   <div class="contact__blob"></div>
@@ -460,6 +498,17 @@
     <a href="tel:+919372970037">Call</a>
   </div>
 </footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb__btn lb__close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb__btn lb__prev" id="lbPrev" aria-label="Previous">‹</button>
+  <figure class="lb__stage">
+    <img class="lb__img" id="lbImg" src="" alt="" />
+    <figcaption class="lb__cap" id="lbCap"></figcaption>
+  </figure>
+  <button class="lb__btn lb__next" id="lbNext" aria-label="Next">›</button>
+</div>
 
 <script src="script.js"></script>
 </body>

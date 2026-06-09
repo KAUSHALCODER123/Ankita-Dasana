@@ -238,7 +238,7 @@ section{position:relative}
 .contact{background:var(--ink);color:#fff;text-align:center;padding:100px clamp(20px,5vw,64px);overflow:hidden}
 .contact::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .contact__blob{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.6),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(50px);z-index:0}
-.contact>*{position:relative;z-index:1}
+.contact>*:not(.contact__blob){position:relative;z-index:1}
 .contact__title{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin:6px 0 18px}
 .contact__sub{color:#C9C3D6;max-width:520px;margin:0 auto 36px}
 .contact__btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}

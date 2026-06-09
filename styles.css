@@ -167,8 +167,11 @@ section{position:relative}
 /* ============== ABOUT ============== */
 .about{max-width:1200px;margin:0 auto;padding:60px clamp(20px,5vw,64px);display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
 .about__media{position:relative}
-.about__img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center 20%;border-radius:var(--r);box-shadow:var(--shadow)}
-.about__sticker{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--ink);color:#fff;font-weight:600;font-size:.86rem;padding:10px 20px;border-radius:100px;white-space:nowrap;box-shadow:var(--shadow-sm)}
+.about__collage{position:relative;padding-bottom:30px;padding-right:18px}
+.about__img--main{width:100%;aspect-ratio:4/4.7;object-fit:cover;object-position:center 16%;border-radius:var(--r);box-shadow:var(--shadow);display:block}
+.about__img--accent{position:absolute;right:-6px;bottom:0;width:42%;aspect-ratio:3/3.5;object-fit:cover;object-position:center 22%;border-radius:18px;border:5px solid #fff;box-shadow:var(--shadow);transform:rotate(4deg);transition:.3s}
+.about__img--accent:hover{transform:rotate(0)}
+.about__sticker{position:absolute;top:18px;left:-12px;transform:rotate(-3deg);background:var(--ink);color:#fff;font-weight:600;font-size:.82rem;padding:9px 18px;border-radius:100px;white-space:nowrap;box-shadow:var(--shadow-sm);z-index:2}
 .about__copy p{color:var(--ink-soft);margin-bottom:16px;max-width:560px}
 .about__copy p strong{color:var(--ink)}
 .about__skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
@@ -203,6 +206,9 @@ section{position:relative}
 .card__body p{font-size:.92rem;color:var(--ink-soft);margin-bottom:14px}
 .card__body p strong{color:var(--ink)}
 .card__tag{font-size:.78rem;font-weight:700;color:var(--purple);background:#EDE4FE;padding:6px 12px;border-radius:100px;display:inline-block}
+.card__foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.card__link{font-size:.78rem;font-weight:700;color:#fff;background:var(--ink);padding:6px 13px;border-radius:100px;transition:.25s;white-space:nowrap}
+.card__link:hover{background:var(--purple);transform:translateY(-1px)}
 
 /* ============== QUOTE ============== */
 .quote{max-width:1100px;margin:30px auto;padding:40px clamp(20px,5vw,64px);display:grid;grid-template-columns:.6fr 1.4fr;gap:48px;align-items:center}
